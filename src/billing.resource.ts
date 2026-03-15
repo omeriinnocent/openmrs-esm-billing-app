@@ -22,11 +22,12 @@ import type {
 
 export const mapBillProperties = (bill: PatientInvoice): MappedBill => {
   const activeLineItems = bill?.lineItems?.filter((item) => !item.voided) || [];
+  const displayParts = bill?.patient?.display?.split('-') ?? [];
 
   return {
     ...bill,
-    patientName: bill?.patient?.display?.split('-')?.[1],
-    identifier: bill?.patient?.display?.split('-')?.[0],
+    patientName: displayParts.length > 1 ? displayParts.slice(1).join('-') : undefined,
+    identifier: displayParts[0],
     patientUuid: bill?.patient?.uuid,
     cashPointUuid: bill?.cashPoint?.uuid,
     cashPointName: bill?.cashPoint?.name,

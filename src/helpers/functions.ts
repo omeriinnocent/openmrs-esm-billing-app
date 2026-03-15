@@ -16,7 +16,7 @@ export function calculateTotalAmountTendered(payments: Array<Payment>) {
 
 // balance
 export function calculateTotalBalance(lineItems: Array<LineItem>, payments: Array<Payment>) {
-  return Math.min(this.calculateTotalAmount(lineItems) - this.calculateTotalAmountTendered(payments));
+  return calculateTotalAmount(lineItems) - calculateTotalAmountTendered(payments);
 }
 
 // total bill

@@ -85,3 +85,4 @@ dist/
 /playwright-report/
 /playwright/.cache/
 e2e/storageState.json
+package-lock.json

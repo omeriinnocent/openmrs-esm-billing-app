@@ -35,7 +35,7 @@ const Payments: React.FC<PaymentProps> = ({ bill, mutate }) => {
         invalid_type_error: t('amountRequired', 'Amount is required'),
       })
       .positive({ message: t('amountMustBePositive', 'Amount must be greater than 0') })
-      .max(bill?.totalAmount - bill?.tenderedAmount, {
+      .max((bill?.totalAmount ?? 0) - (bill?.tenderedAmount ?? 0), {
         message: t('paymentAmountCannotExceedAmountDue', 'Payment amount cannot exceed amount due'),
       }),
     referenceCode: z.union([z.number(), z.string()]).optional(),

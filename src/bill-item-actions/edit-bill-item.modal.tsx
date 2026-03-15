@@ -105,7 +105,7 @@ const EditBillLineItemModal: React.FC<EditBillLineItemModalProps> = ({ bill, clo
 
     const payload = {
       cashPoint: bill.cashPointUuid,
-      cashier: bill.cashier.uuid,
+      cashier: bill.cashier?.uuid,
       lineItems: updatedLineItems,
       patient: bill.patientUuid,
       status: bill.status,
